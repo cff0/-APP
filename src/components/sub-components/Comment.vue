@@ -1,7 +1,7 @@
 <template>
   <div>
 
-    <h4>发表评论 --- {{ newsid }}</h4>
+    <h4>发表评论</h4>
     <hr>
     <textarea placeholder="请输入要BB的内容（最多吐槽120字）" maxlength="120" v-model="msg"></textarea>
     <mt-button type="primary" size="large" @click="postMsg">发表评论</mt-button>

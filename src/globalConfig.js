@@ -3,8 +3,11 @@ import Vue from 'vue'
 import MintUI from 'mint-ui'
 import 'mint-ui/lib/style.css'
 Vue.use(MintUI)
-
-//导入MUI样式
+    //导入vue-preview来渲染缩略图
+import VuePreview from 'vue-preview'
+// defalut install
+Vue.use(VuePreview)
+    //导入MUI样式
 import '../lib/mui/css/mui.min.css'
 import '../lib/mui/css/icons-extra.css'
 
