@@ -5,8 +5,6 @@
     <hr>
     <textarea placeholder="请输入要BB的内容（最多吐槽120字）" maxlength="120" v-model="msg"></textarea>
     <mt-button type="primary" size="large" @click="postMsg">发表评论</mt-button>
-
-
   <!-- 评论列表区域 -->
   <div class="cmt-list">
     <div class="cmt-item" v-for="(item, i) in cmtlist" :key="i">

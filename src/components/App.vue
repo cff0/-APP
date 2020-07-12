@@ -3,7 +3,9 @@
 
     <!-- 在这里放一个 Header  -->
     <mt-header fixed title="黑马程序员·Vue项目">
-      
+      <span slot="left" @click="goBack" v-show="flag">
+        <mt-button icon="back">返回</mt-button>
+      </span>
     </mt-header>
 
     <!-- 路由的容器坑 -->
@@ -23,7 +25,7 @@
 				<span class="mui-tab-label">会员</span>
 			</router-link>
 			<router-link class="my-tab-item" to="/shopcar">
-				<span class="mui-icon mui-icon-extra mui-icon-extra-cart"><span class="mui-badge">0</span></span>
+				<span class="mui-icon mui-icon-extra mui-icon-extra-cart"><span class="mui-badge" id="badge">{{totalcount}}</span></span>
 				<span class="mui-tab-label">购物车</span>
 			</router-link>
 			<router-link class="my-tab-item" to="/search">
@@ -37,6 +39,40 @@
 
 
 <script>
+import {mapGetters} from 'vuex'
+export default{
+    data(){
+      return {
+        flag:true
+      }
+    },
+    methods:{
+      goBack(){
+        //点击返回按钮，退后一步
+        this.$router.go(-1)
+      }
+    },
+    mounted(){
+       if(this.$route.path==='/home' || this.$route.path==='/member' || this.$route.path==='/shopcar' || this.$route.path==='/search'){
+            this.flag=false
+          }else{
+            this.flag=true
+          }
+    },
+    watch:{
+      '$route.path':function(newVal,oldVal){
+          if(newVal==='/home' || newVal==='/member' || newVal==='/shopcar' || newVal==='/search'){
+            this.flag=false
+          }else{
+            this.flag=true
+          }
+      }
+    },
+    computed:{
+      ...mapGetters(['totalcount'])
+    }
+
+}
 </script>
 
 // 这里写的样式，要符合 scss 语法，并且，样式是 当前组件私有的，不会成为全局的样式，也不会应用给子组件

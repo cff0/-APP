@@ -12,10 +12,13 @@ Vue.use(VueRouter)
 import router from './router.js'
 // 引入根组件
 import App from './components/App.vue'
-
+//导入状态管理对象 vuex
+import store from './store.js'
 const vm = new Vue({
-    el: '#app',
-    // 渲染组件
-    render: c => c(App),
-    router, //挂载路由
-})
+        el: '#app',
+        // 渲染组件
+        render: c => c(App),
+        router, //挂载路由
+        store, //挂载vuex
+    })
+    // import './test/数组some的使用.js'

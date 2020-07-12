@@ -4,7 +4,7 @@ import MintUI from 'mint-ui'
 import 'mint-ui/lib/style.css'
 Vue.use(MintUI)
     //导入vue-preview来渲染缩略图
-import VuePreview from 'vue-preview'
+import VuePreview from 'vue2-preview'
 // defalut install
 Vue.use(VuePreview)
     //导入MUI样式
